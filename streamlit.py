@@ -8,6 +8,9 @@ Original file is located at
 """
 
 import streamlit as st
+import os
+os.system('pip install nltk')
+import nltk
 nltk.download('punkt_tab')
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -17,9 +20,7 @@ import pandas as pd
 from collections import Counter
 import string
 from deep_translator import GoogleTranslator
-import os
-os.system('pip install nltk')
-import nltk
+
 
 # Streamlit UI elements
 st.title("Text Analysis and Translation App")
