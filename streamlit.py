@@ -8,18 +8,17 @@ Original file is located at
 """
 
 import streamlit as st
-pip install nltk
 import nltk
-nltk.download('punkt_tab')
-nltk.download('punkt')
-nltk.download('stopwords')
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 import pandas as pd
 from collections import Counter
 import string
 from deep_translator import GoogleTranslator
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
+# Download necessary NLTK data
+nltk.download('punkt')
+nltk.download('stopwords')
 
 # Streamlit UI elements
 st.title("Text Analysis and Translation App")
@@ -46,7 +45,10 @@ if st.button("Process Text"):
         translator = GoogleTranslator(source='auto', target='en')
         translations = []
         for i, (word, freq) in enumerate(top_1000_words):
-            translated_word = translator.translate(word)
+            try:
+                translated_word = translator.translate(word)
+            except Exception as e:
+                translated_word = "Translation Error"
             translations.append((word, translated_word, freq))
 
         top_1000_df = pd.DataFrame(translations, columns=['Word', 'Translation', 'Frequency'])
