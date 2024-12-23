@@ -18,6 +18,8 @@ import pandas as pd
 from collections import Counter
 import string
 from deep_translator import GoogleTranslator
+import os
+os.system('pip install nltk')
 
 # Streamlit UI elements
 st.title("Text Analysis and Translation App")
