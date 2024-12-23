@@ -8,8 +8,7 @@ Original file is located at
 """
 
 import streamlit as st
-import os
-os.system('pip install nltk')
+pip install nltk
 import nltk
 nltk.download('punkt_tab')
 nltk.download('punkt')
